@@ -1,0 +1,26 @@
+Well,here is some infomation of WAV format.
+
+--------------------------------------------
+						
+0	Chunk ID	4	'R','I','F','F'		big	
+4	Chunk Size	4	[unsigned int]		small
+8	Format		4	'W','A','V','E'		big
+12	Sub Chunk1 ID	4	'f','m','t',' '		big
+16	Sub Chunk1 Size	4	[unsigned int]		small	16
+20	AudioFormat	2	[unsigned short]	small	PCM=1
+22	NumChannels	2	[unsigned short]	small
+24	SampleRate	4	[unsigned int]		small
+28	ByteRate	4	[unsigned int]		small	SampleRate*NumChannels*BitPerSample/8
+32	BlockAlign	2	[unsigned short]	small	NumChannels*BitPerSample/8
+34	BitPerSample	2	[unsigned short]	small
+36	Sub Chunk2 ID	4	'd','a','t','a'		small	
+40	Sub Chunk2 ID	4	[unsigned int]		small
+44	Data		?	?			small	Data of Wave.
+
+--------------------------------------------
+
+The last output format.
+
+For Hanako.
+
+
