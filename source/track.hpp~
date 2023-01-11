@@ -82,15 +82,6 @@ class track{
 			}
 			return *this;
 		}
-		// Insert
-		unsigned int insert(const unsigned int offset,const T object){
-			resize(num+1);
-			for(int i=num-1;i>offset+1;i--){
-				array[i]=array[i-1];
-			}
-			array[offset]=object;
-			return offset;
-		}
 };
 
 }

@@ -6,10 +6,16 @@ int main(){
 	Hanako::track<int> a;
 	a.resize(5);
 	cout<<a.size()<<endl;
-	a.access(2,233);
-	cout<<a[2]<<endl; 
-	Hanako::track<int> b;
-	b=a;
-	cout<<b[2]<<endl; 
+	for(int i=0;i<a.size();i++){
+		a[i]=i;
+		cout<<a[i]<<'	';
+	}
+	cout<<endl;
+	a.insert(2,233);
+	cout<<a.size()<<endl;
+	for(int i=0;i<a.size();i++){
+		cout<<a[i]<<'	';
+	}
+	
 	return 0;
 }
