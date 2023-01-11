@@ -24,6 +24,10 @@ class track{
 			num=0;
 			array = (T*)0;
 		}
+		track(const unsigned int alloc){
+			num=alloc;
+			array = new T[size];
+		}
 		// Forget
 		~track(){
 			if(num)delete [] array;
@@ -33,13 +37,9 @@ class track{
 			if(num==new_num)return num;
 			if(new_num){
 				T *new_track = new T[new_num];
-				T *p=new_track;
-				T *q=array;
 				unsigned int total=num<new_num?num:new_num;
 				for(int i=0;i<total;i++){
-					*p=*q;
-					p++;
-					q++;
+					new_track[i]=array[i];
 				}
 				if(num)delete [] array;
 				array=new_track;
@@ -71,6 +71,16 @@ class track{
 				return array[offset];
 			}
 			// WARNING:NO RETURN
+		}
+		// (I don't know how to name it...)
+		track &operator=(track &t){
+			if(this->num)delete [] this->array;
+			this->num=t.num;
+			if(t.num)this->array=new T[this->num];
+			for(int i=0;i<t.num;i++){
+				this->array[i]=t.array[i];
+			}
+			return *this;
 		}
 };
 

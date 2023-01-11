@@ -8,5 +8,8 @@ int main(){
 	cout<<a.size()<<endl;
 	a.access(2,233);
 	cout<<a[2]<<endl; 
+	Hanako::track<int> b;
+	b=a;
+	cout<<b[2]<<endl; 
 	return 0;
 }
