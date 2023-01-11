@@ -29,7 +29,7 @@ class track{
 			if(num)delete [] array;
 		}
 		// Reset num
-		unsigned int resize(const unsigned int new_num){
+		unsigned int resize(unsigned int new_num){
 			if(num==new_num)return num;
 			if(new_num){
 				T *new_track = new T[new_num];
@@ -52,26 +52,18 @@ class track{
 			return num;
 		}
 		// access
-		T access(const unsigned int offset){
+		T access(unsigned int offset){
 			if(offset<num&&num){
 				return array[offset];
 			}
-			// WARNING:NO RETURN
 		}
-		T access(const unsigned int offset,T obj){
+		T access(unsigned int offset,T obj){
 			if(offset<num&&num){
 				array[offset]=obj;
 				return array[offset];
 			}
-			// WARNING:NO RETURN
 		}
-		// access
-		T & operator[] (const unsigned int offset){
-			if(offset<num&&num){
-				return array[offset];
-			}
-			// WARNING:NO RETURN
-		}
+		
 };
 
 }
