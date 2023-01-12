@@ -91,6 +91,38 @@ class track{
 			array[offset]=object;
 			return offset;
 		}
+		
+		
+		/* This function has some bugs. */
+		
+		// Insert(Copy)
+		//unsigned int insert(track &t,const unsigned int from_offset,const unsigned int to_offset,const unsigned int large){
+//			if(t.num>from_offset+large){
+//				resize(num+large);
+//				// NOTICE:It won't check the t.array . 
+//				for(int i=num-1;i>to_offset+large;i--){
+//					array[i]=array[i-1];
+//				}
+//				for(int i=0;i<large;i++){
+//					array[to_offset+i]=t.array[from_offset+i];
+//				}
+//				return large;
+//			}
+//			return 0;
+//		}
+		
+		
+		// Cover(Copy) (Limit size)
+		unsigned int cover(track &t,const unsigned int from_offset,const unsigned int to_offset,const unsigned int large){
+			if(t.num>from_offset+large){
+				//                   vvvvv  (Limit)
+				for(int i=0;i<large&&i<num;i++){
+					array[i+to_offset]=t.array[i+from_offset];
+				}
+				return large;
+			}
+			return 0;
+		}
 };
 
 }
